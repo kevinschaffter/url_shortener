@@ -1,0 +1,9 @@
+<%= form_with(model: link, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :original %>
+    <%= form.text_field :original, id: :link_original %>
+  </div>
+    <%= form.submit %>
+  </div>
+<% end %>
