@@ -10,13 +10,13 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-    if params[:id].present?
-      @link = Link.find(params[:id])
-      redirect_to @link.original
-    elsif params[:show].present?
-      @link = Link.find_by_short(params[:short])
-      redirect_to @link.original
-    end
+    @link = Link.find(params[:id])
+    redirect_to @link.original
+  end
+
+  def show_alt
+    @link = Link.find_by_short(params[:short])
+    redirect_to @link.original
   end
 
 
