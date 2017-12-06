@@ -19,7 +19,6 @@ class LinksController < ApplicationController
     redirect_to @link.original
   end
 
-
   # GET /links/new
   def new
     @link = Link.new
