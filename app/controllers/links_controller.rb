@@ -10,15 +10,15 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-
-    if !params[:short].blank?
-      @link = Link.find_by_short( params[:short] )
+    if params[:id].present?
+      @link = Link.find(params[:id])
       redirect_to @link.original
-    else @link = Link.find_by_id (params[:id])
-        redirect to @link.original
+    elsif params[:show].present?
+      @link = Link.find_by_short(params[:short])
+      redirect_to @link.original
     end
-    
   end
+
 
   # GET /links/new
   def new

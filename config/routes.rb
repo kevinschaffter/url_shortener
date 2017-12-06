@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   root 'links#new'
 
-  get '/:short', to: 'links#show'
+
+  get '/:show', to: 'links#show'
 
   get '/:id', to: 'links#show'
 
