@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'links#new'
 
-  get 'alt/:show', to: 'links#show_alt'
+  get 'alt/:short', to: 'links#show_alt'
 
   get '/:id', to: 'links#show'
 
