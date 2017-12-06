@@ -10,8 +10,15 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-    @link = Link.find_by_short( params[:short] )
-    redirect_to @link.original
+
+    if !params[:short].blank?
+      @link = Link.find_by_short( params[:short] )
+      redirect_to @link.original
+    elsif !params[:id].blank?
+      @link = Link.find_by_id (params[:id])
+      redirect to @link.original
+    end
+    
   end
 
   # GET /links/new
@@ -27,7 +34,7 @@ class LinksController < ApplicationController
   # POST /links.json
   def create
     @link = Link.new(link_params)
-    @link.short = "https://murmuring-badlands-66601.herokuapp.com/#{(0...6).map { ('a'..'z').to_a[rand(26)] }.join}"
+    @link.short = (0...6).map { ('a'..'z').to_a[rand(26)] }.join
 
     respond_to do |format|
       if @link.save
