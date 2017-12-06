@@ -14,9 +14,8 @@ class LinksController < ApplicationController
     if !params[:short].blank?
       @link = Link.find_by_short( params[:short] )
       redirect_to @link.original
-    elsif !params[:id].blank?
-      @link = Link.find_by_id (params[:id])
-      redirect to @link.original
+    else @link = Link.find_by_id (params[:id])
+        redirect to @link.original
     end
     
   end
