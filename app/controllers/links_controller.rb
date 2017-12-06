@@ -27,9 +27,7 @@ class LinksController < ApplicationController
   # POST /links.json
   def create
     @link = Link.new(link_params)
-    @link.short = (0...6).map { ('a'..'z').to_a[rand(26)] }.join
-
-
+    @link.short = "https://murmuring-badlands-66601.herokuapp.com/#{(0...6).map { ('a'..'z').to_a[rand(26)] }.join}"
 
     respond_to do |format|
       if @link.save
